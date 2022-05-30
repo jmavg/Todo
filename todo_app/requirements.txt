@@ -1,4 +1,4 @@
 Flask==2.1.2
 Flask-WTF==1.0.1
-whell==0.37.1
+wheel==0.37.1
 flask-mongoengine==1.0.0
