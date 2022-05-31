@@ -11,9 +11,20 @@ app.config["MONGODB_SETTINGS"] = {'db':"todo" ,'port':6969}
 
 db.init_app(app)
 
+class Entry(db.Document):
+    name = db.StringField()
+    steps = db.DictField()
+
+
 @app.route("/")
 def index():
-    return render_template("index.html")
+
+    empty = True
+
+    if Entry.objects.count() != 0:
+        empty = False
+
+    return render_template("index.html", empty = empty)
     
 
 @app.route("/create_list")
