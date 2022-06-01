@@ -2,7 +2,12 @@
 
 {% block content %}
 
+<h1>Welcome to the TODO app!</h1>
 
+{% if empty %}
+<p>Look's like you don't have any todos. How about you make one!</p>
+<a href="{{ url_for('create') }}">Click here to create one!</a>
+{% endif %}
 
 
 
