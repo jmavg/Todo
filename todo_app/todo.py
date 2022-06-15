@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, render_template
 from flask_mongoengine import MongoEngine
 from forms import form_list_add
 
@@ -19,15 +19,14 @@ class Entry(db.Document):
 @app.route("/")
 def index():
 
-    empty = True
+    empty = False if Entry.objects.count() > 0 else True
 
-    if Entry.objects.count() != 0:
-        empty = False
-
-    return render_template("index.html", empty = empty)
+    return render_template("index.html", empty = empty, entry = Entry)
     
 
 @app.route("/create_list")
 def create():
+
     form = form_list_add()
     return render_template("create.html",form = form)
+
