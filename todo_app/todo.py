@@ -20,7 +20,6 @@ class Entry(db.Document):
 def index():
 
     empty = False if Entry.objects.count() > 0 else True
-
     return render_template("index.html", empty = empty, entry = Entry)
     
 

@@ -7,5 +7,6 @@ WORKDIR /opt/TODO/
 
 RUN git clone https://github.com/jmavg/Todo.git
 RUN pip install --no-cache-dir -r requirements.txt
-CMD ["python", "./todo_app/todo.py"]
+ENTRYPOINT [ "python" ]
+CMD ["./todo_app/todo.py"]
 
